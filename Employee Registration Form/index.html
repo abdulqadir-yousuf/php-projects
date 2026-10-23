@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f2f5f9; margin: 0; padding: 25px; color: #222; }
+        .container { max-width: 760px; margin: auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 12px #0001; }
+        h1 { text-align: center; color: #17365d; }
+        .field { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; font-weight: bold; }
+        input[type="text"], input[type="number"], select, input[type="file"] { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #bbb; border-radius: 5px; }
+        .options label { display: inline-block; font-weight: normal; margin-right: 18px; }
+        .options input { width: auto; }
+        button { background: #17365d; color: white; border: 0; padding: 12px 22px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #24558c; }
+        .hint { color: #555; font-size: 13px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Employee Registration Form</h1>
+
+    <!-- The form sends text and file information to process.php using POST. -->
+    <form action="process.php" method="post" enctype="multipart/form-data">
+        <div class="field">
+            <label for="employee_name">Employee Full Name</label>
+            <input type="text" id="employee_name" name="employee_name" required>
+        </div>
+
+        <div class="field">
+            <label for="employee_id">Employee ID</label>
+            <input type="text" id="employee_id" name="employee_id" required>
+        </div>
+
+        <div class="field options">
+            <label>Gender</label>
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
+
+        <div class="field">
+            <label for="department">Department</label>
+            <select id="department" name="department">
+                <option value="">-- Select Department --</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Finance">Finance</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Administration">Administration</option>
+            </select>
+        </div>
+
+        <div class="field options">
+            <label>Employment Type</label>
+            <label><input type="radio" name="employment_type" value="Full-Time"> Full-Time</label>
+            <label><input type="radio" name="employment_type" value="Part-Time"> Part-Time</label>
+        </div>
+
+        <div class="field">
+            <label for="basic_salary">Basic Salary ($)</label>
+            <input type="number" id="basic_salary" name="basic_salary" min="0.01" step="0.01" required>
+        </div>
+
+        <div class="field">
+            <label for="allowance">Allowance ($)</label>
+            <input type="number" id="allowance" name="allowance" min="0" step="0.01" value="0" required>
+        </div>
+
+        <div class="field">
+            <label for="deduction">Deduction ($)</label>
+            <input type="number" id="deduction" name="deduction" min="0" step="0.01" value="0" required>
+        </div>
+
+        <div class="field">
+            <label for="years_service">Years of Service</label>
+            <input type="number" id="years_service" name="years_service" min="0" step="1" value="0" required>
+        </div>
+
+        <div class="field">
+            <label for="employee_document">Employee Document</label>
+            <input type="file" id="employee_document" name="employee_document" required>
+            <div class="hint">Maximum file size: 2 MB.</div>
+        </div>
+
+        <button type="submit" name="submit">Register Employee</button>
+    </form>
+</div>
+</body>
+</html>
